@@ -101,4 +101,3 @@ st.pyplot(plt)
 
 
 
-pip install streamlit scikit-learn pandas numpy matplotlib seaborn
