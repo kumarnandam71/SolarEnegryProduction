@@ -1,3 +1,5 @@
+!pip install streamlit scikit-learn pandas numpy matplotlib seaborn
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -7,7 +9,6 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
 import matplotlib.pyplot as plt
-!pip install streamlit scikit-learn pandas numpy matplotlib seaborn
 
 
 # Load data
