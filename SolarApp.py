@@ -8,13 +8,14 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+import pickle
 
 # Load data
 @st.cache_data
-def load_data():
-    return pd.read_csv("solarpowergeneration.csv")
-
+# Load the trained model
+model_path = 'solar_energy.pkl'
+with open(model_path, 'rb') as file:
+    model = pickle.load(file)
 df = load_data()
 
 # Sidebar for user input parameters
