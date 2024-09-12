@@ -9,7 +9,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the trained model from the pickle file
-filename = 'solar_energy.pkl'
+filename = 'solar_energy.pkl'  # Ensure the path is correct
 with open(filename, 'rb') as file:
     model_rf = pickle.load(file)
 
@@ -57,12 +57,15 @@ df.fillna(df.mean(), inplace=True)
 scaler = StandardScaler()
 df_scaled = pd.DataFrame(scaler.fit_transform(df), columns=df.columns)
 
-# Split data
+# Extract features and target variable
 X = df_scaled.drop('power_generated', axis=1)
 y = df_scaled['power_generated']
+
+# Split data (training and testing)
+from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Make predictions
+# Scale input for prediction
 scaled_input = scaler.transform(input_df)
 prediction = model_rf.predict(scaled_input)
 
