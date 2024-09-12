@@ -13,8 +13,8 @@ import pickle
 # Load data
 @st.cache_data
 # Load the trained model
-model_path = 'solar_energy.pkl'
-with open(model_path, 'rb') as file:
+
+with open('solar_energy.pkl', 'rb') as file:
     model = pickle.load(file)
 df = load_data()
 
